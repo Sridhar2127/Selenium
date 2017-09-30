@@ -13,7 +13,9 @@ public class TC001_LoginLeafTaps extends GenericWrappers{
 		enterById("password", "crmsfa");
 		clickByClassName("decorativeSubmit");
 		verifyTextContainsByXpath("//h2[contains(text(),'Welcome')]","Demo Sales Manager");
-		clickByClassName("decorativeSubmit");		
+		clickByClassName("decorativeSubmit");	
+		takeSnap();
+		closeBrowser();
 	}
 }
 

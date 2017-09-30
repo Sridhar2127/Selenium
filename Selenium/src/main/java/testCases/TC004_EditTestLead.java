@@ -6,7 +6,7 @@ import wrappers.GenericWrappers;
 
 public class TC004_EditTestLead extends GenericWrappers{
 	@Test
-	public void editlead(){
+	public void editlead() throws InterruptedException{
 		invokeApp("chrome","http://leaftaps.com/opentaps");
 		enterById("username","DemoSalesManager");
 		enterById("password","crmsfa");
@@ -14,9 +14,12 @@ public class TC004_EditTestLead extends GenericWrappers{
 		clickByLink("CRM/SFA");
 		clickByLink("Leads");
 		clickByLink("Find Leads");
-		enterByXpath("//div[@id ='x-form-el-ext-gen256']","Sridhar");
+		clickByXpath("//span[text()='Name and ID']");
+		enterByXpath("(//input[@name='firstName'])[3]","Sridhar");
+		clickByXpath("//button[text()='Find Leads']");
+		Thread.sleep(2000);
 		clickByXpath("(//div[@class='x-grid3-cell-inner x-grid3-col-partyId'])[1]/a");
-		verifyTextById("sectionHeaderTitle_leads","View Lead");
+		verifyTitle("View Lead");
 		clickByLink("Edit");
 		enterById("updateLeadForm_companyName", "Revolution New");
 		clickByXpath("//input[@value='Update']");

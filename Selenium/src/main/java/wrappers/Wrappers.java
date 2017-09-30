@@ -1,5 +1,6 @@
 package wrappers;
 
+import java.io.IOException;
 
 public interface Wrappers {
 		
@@ -116,6 +117,7 @@ public interface Wrappers {
 		 * This method will click the element using xpath as locator
 		 * @param xpathVal  The xpath (locator) of the element to be clicked
 		 * @author Babu - TestLeaf
+		 * @return 
 		 */
 		public void clickByXpath(String xpathVal) ;
 		
@@ -189,8 +191,10 @@ public interface Wrappers {
 		/**
 		 * This method will take snapshot of the browser
 		 * @author Babu - TestLeaf
+		 * @throws IOException 
+		 * @throws Exception 
 		 */
-		public void takeSnap();
+		public void takeSnap() throws IOException, Exception;
 			
 		/**
 		 * This method will close the active browser

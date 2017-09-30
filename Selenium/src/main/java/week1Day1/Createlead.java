@@ -29,11 +29,13 @@ public class Createlead {
 		driver.findElementById("createLeadForm_industryEnumId").sendKeys("Computer Hardware");
 		driver.findElementById("createLeadForm_numberEmployees").sendKeys("100");
 		driver.findElementById("createLeadForm_ownershipEnumId").sendKeys("Partnership");
-		driver.findElementByName("sicCode").sendKeys("234",Keys.TAB);
+		driver.findElementByName("sicCode").sendKeys("234");
 		driver.findElementById("createLeadForm_tickerSymbol").sendKeys("Breakfast");
 		driver.findElementById("createLeadForm_description").sendKeys("Consists of my own team data");
 		driver.findElementById("createLeadForm_importantNote").sendKeys("Highly confidential!!");
 		driver.findElementById("createLeadForm_primaryPhoneCountryCode").sendKeys("12");
+		driver.findElementById("createLeadForm_primaryPhoneAreaCode").sendKeys("0413");
+	
 		driver.findElementById("createLeadForm_primaryPhoneNumber").sendKeys("9894970410");
 		driver.findElementByClassName("inputBox").sendKeys("4");
 		driver.findElementById("createLeadForm_primaryPhoneExtension").sendKeys("2017");
@@ -50,7 +52,7 @@ public class Createlead {
 		driver.findElementById("createLeadForm_generalStateProvinceGeoId").sendKeys("TAMILNADU");
 		driver.findElementById("createLeadForm_generalPostalCode").sendKeys("600041");
 		driver.findElementById("createLeadForm_generalPostalCodeExt").sendKeys("041");	
-		driver.findElementByName("submitButton").click();	
+//		driver.findElementByName("submitButton").click();	
 	}
 
 }
