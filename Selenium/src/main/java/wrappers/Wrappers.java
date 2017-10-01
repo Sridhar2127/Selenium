@@ -208,6 +208,12 @@ public interface Wrappers {
 		 * @author Babu - TestLeaf
 		 */
 		public void closeAllBrowsers();
+		
+		/**
+		 * This method will split the company Name & lead and give the LeadID
+		 * @author Babu - TestLeaf
+		 */
+		public String splitTextCaptureLeadId(String str);
 
 }
 

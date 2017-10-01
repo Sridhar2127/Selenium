@@ -19,6 +19,8 @@ import org.openqa.selenium.support.ui.Select;
 public class GenericWrappers implements Wrappers {
 	RemoteWebDriver driver;
 	public int i = 1;
+	public String currentwindow ="";
+	public int firstindex, secondindex;
 
 	/**
 	 * This method will launch the given browser and maximise the browser and
@@ -46,6 +48,8 @@ public class GenericWrappers implements Wrappers {
 		driver.manage().window().maximize();
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		currentwindow = driver.getWindowHandle();
+	
 		System.out.println("The browser : " + browser + " is launched Successfully");
 	}
 
@@ -227,7 +231,7 @@ public class GenericWrappers implements Wrappers {
 
 	public void clickByLinkNoSnap(String name) {
 		try {
-			driver.findElementByLinkText(name);
+			driver.findElementByLinkText(name).click();
 			System.out.println("The value " + name + " has been clicked");
 		} catch (NoSuchElementException e) {
 			System.out.println("No such element found error");
@@ -323,19 +327,13 @@ public class GenericWrappers implements Wrappers {
 	}
 
 	public void switchToParentWindow() {
-		try {
-			Set<String> allwindow = driver.getWindowHandles();
-			for (String eachwindow : allwindow) {
-				driver.switchTo().window(eachwindow);
-				break;
-			}
-			System.out.println("Switched to last window successfully");
+		try { 
+				driver.switchTo().window(currentwindow);
+				System.out.println("Switched to parent window successfully");
+	
 		} catch (NoSuchWindowException e) {
 			System.out.println("No such window exception");
-		} finally {
-			takeSnap();
-		}
-
+		} 
 	}
 
 	public void switchToLastWindow() {
@@ -347,8 +345,6 @@ public class GenericWrappers implements Wrappers {
 			System.out.println("Switched to last window successfully");
 		} catch (NoSuchWindowException e) {
 			System.out.println("No such window exception");
-		} finally {
-			takeSnap();
 		}
 	}
 
@@ -409,5 +405,16 @@ public class GenericWrappers implements Wrappers {
 		} catch (WebDriverException e) {
 			System.out.println("web driver exception");
 		}
+	}
+
+	public String splitTextCaptureLeadId(String str){
+		
+		int firstindex = str.indexOf("(");
+		int lastindex = str.indexOf(")");
+		
+		String capturedtext = str.substring(firstindex+1, lastindex);
+		System.out.println("Captured lead id is " +capturedtext);
+		return capturedtext;	
+		
 	}
 }

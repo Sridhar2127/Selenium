@@ -51,6 +51,9 @@ public class TC002_CreateTestLead extends GenericWrappers {
 		enterById("createLeadForm_generalPostalCode", "600041");
 		enterById("createLeadForm_generalPostalCodeExt", "041");
 		clickByClassName("smallSubmit");
-		verifyTextById("viewLead_firstName_sp","Sridhar");	
+		Thread.sleep(1000);
+		String name = getTextById("viewLead_companyName_sp");
+		splitTextCaptureLeadId(name);
+//		verifyTextById("viewLead_firstName_sp","Sridhar");	
 	}
 }
