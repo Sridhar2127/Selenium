@@ -1,17 +1,12 @@
 package testCases;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
-import wrappers.GenericWrappers;
+import wrappers.ProjectWrappers;
 
-public class TC004_EditTestLead extends GenericWrappers{
+public class TC004_EditTestLead extends ProjectWrappers{
 	@Test
 	public void editlead() throws InterruptedException{
-		invokeApp("chrome","http://leaftaps.com/opentaps");
-		enterById("username","DemoSalesManager");
-		enterById("password","crmsfa");
-		clickByClassName("decorativeSubmit");
-		clickByLink("CRM/SFA");
 		clickByLink("Leads");
 		clickByLink("Find Leads");
 		clickByXpath("//span[text()='Name and ID']");
@@ -24,7 +19,6 @@ public class TC004_EditTestLead extends GenericWrappers{
 		enterById("updateLeadForm_companyName", "Revolution New");
 		clickByXpath("//input[@value='Update']");
 		verifyTextContainsByXpath("//span[@id='viewLead_companyName_sp']","Revolution New");
-		closeBrowser();	
 	}
 
 }

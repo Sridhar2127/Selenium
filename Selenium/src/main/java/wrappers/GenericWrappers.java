@@ -39,11 +39,11 @@ public class GenericWrappers implements Wrappers {
 				System.setProperty("webdriver.chrome.driver", "/Users/srajendran/Desktop/drivers/ChromeDriver");
 				driver = new ChromeDriver();
 			} else if (browser.equalsIgnoreCase("firefox")) {
-				System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver", "/Users/srajendran/Desktop/drivers/geckodriver");
 				driver = new FirefoxDriver();
 			}
 		} catch (WebDriverException e) {
-			System.out.println("Web driver excemption");
+			System.out.println("Web driver exception");
 		}
 		driver.manage().window().maximize();
 		driver.get(url);

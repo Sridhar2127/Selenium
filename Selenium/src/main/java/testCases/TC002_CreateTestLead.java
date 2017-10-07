@@ -1,17 +1,14 @@
 package testCases;
 
-import org.junit.Test;
-import wrappers.GenericWrappers;
 
-public class TC002_CreateTestLead extends GenericWrappers {
+import org.testng.annotations.Test;
+
+import wrappers.ProjectWrappers;
+
+public class TC002_CreateTestLead extends ProjectWrappers {
 
 	@Test
-	public void login() throws InterruptedException {
-		invokeApp("chrome", "http://leaftaps.com/opentaps");
-		enterById("username", "DemoSalesManager");
-		enterById("password", "crmsfa");
-		clickByClassName("decorativeSubmit");
-		clickByLink("CRM/SFA");
+	public void createLead() throws InterruptedException  {
 		clickByLink("Create Lead");
 		enterById("createLeadForm_companyName", "Revolution");
 		enterById("createLeadForm_firstName","Sridhar");
